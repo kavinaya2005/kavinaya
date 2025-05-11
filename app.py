@@ -4,6 +4,8 @@ import re
 import string
 from scipy.sparse import hstack
 import numpy as np
+from waitress import serve
+from app import app
 
 app = Flask(__name__)
 
@@ -41,4 +43,4 @@ def index():
 import os
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=5000)
