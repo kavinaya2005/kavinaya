@@ -1,6 +1,10 @@
 services:
   - type: web
-    name: fake-news-detection
+    name: fake-news-app
     env: python
-    buildCommand: pip install -r requirements.txt
-    startCommand: python app.py
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+    plan: free
